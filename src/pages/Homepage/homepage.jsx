@@ -39,7 +39,9 @@ export const Homepage = (props) => {
 
   return (
     <div id="home-container">
-      <h1>Home</h1>
+      <div id="home-header">
+        <h1>Home</h1>
+      </div>
       <div className="posts-list">
         {posts.map((post) => (
           <PostCard
