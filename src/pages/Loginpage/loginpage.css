@@ -44,3 +44,8 @@
     cursor: pointer;
     border: 2px solid black;
 }
+
+.error-message{
+    color: red;
+    font-style: italic;
+}

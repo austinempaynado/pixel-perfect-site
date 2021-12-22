@@ -12,6 +12,7 @@ import {
 
 export const LoginPage = (props) => {
   const [mode, setMode] = useState("login");
+  const [loginError, setLoginError] = useState(false);
   const {
     register,
     handleSubmit,
@@ -28,9 +29,10 @@ export const LoginPage = (props) => {
         formVals.user,
         formVals.password
       );
+      setLoginError(false);
       history.push("/home");
     } catch (error) {
-      console.log(error);
+      setLoginError(true);
     }
   };
 
@@ -44,9 +46,7 @@ export const LoginPage = (props) => {
         formVals.password
       );
       history.push("/home");
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   return (
@@ -56,6 +56,11 @@ export const LoginPage = (props) => {
           <h2>Sign in to Pixel Perfect</h2>
           <br />
 
+          {loginError === true && (
+            <p className="error-message">
+              The email or password entered is incorrect
+            </p>
+          )}
           <label htmlFor="user">Email</label>
           <input
             className="login-input"
@@ -111,7 +116,9 @@ export const LoginPage = (props) => {
               },
             })}
           />
-          {errors.password && <p>{errors.password.message}</p>}
+          {errors.password && (
+            <p className="error-message">{errors.password.message}</p>
+          )}
           <label htmlFor="passwordConfirm">Confirm Password</label>
           <input
             className="login-input"
@@ -124,7 +131,9 @@ export const LoginPage = (props) => {
             })}
           />
 
-          {errors.passwordConfirm && <p>{errors.passwordConfirm.message}</p>}
+          {errors.passwordConfirm && (
+            <p className="error-message">{errors.passwordConfirm.message}</p>
+          )}
 
           <input className="login-cta" type="submit" value="Sign Up" />
           <br />
