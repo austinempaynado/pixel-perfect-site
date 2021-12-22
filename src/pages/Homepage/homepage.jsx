@@ -2,9 +2,10 @@ import { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { PostCard } from "../../components/PostCard/postcard";
 import PostContext from "../../context/postsContext";
+import {getAuth, onAuthStateChanged} from 'firebase/auth';
 import "./homepage.css";
 
-export const Homepage = (props) => {
+export const Homepage = () => {
   //states
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -15,6 +16,12 @@ export const Homepage = (props) => {
 
   useEffect(() => {
     getPosts();
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user)=>{
+      if(!user){
+        history.push('/')
+      }
+    })
   }, []);
 
   const getPosts = async () => {
