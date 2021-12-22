@@ -12,7 +12,12 @@ import {
 
 export const LoginPage = (props) => {
   const [mode, setMode] = useState("login");
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    getValues,
+  } = useForm();
   const history = useHistory();
 
   const loginUser = async (formVals) => {
@@ -73,7 +78,9 @@ export const LoginPage = (props) => {
           <br />
 
           <p>Create an account here!</p>
-          <button className="login-buttons" onClick={() => setMode("signup")}>Sign Up</button>
+          <button className="login-buttons" onClick={() => setMode("signup")}>
+            Sign Up
+          </button>
         </form>
       )}
       {mode === "signup" && (
@@ -86,8 +93,9 @@ export const LoginPage = (props) => {
             className="login-input"
             type="email"
             name="user"
-            required
-            {...register("user")}
+            {...register("user", {
+              required: true,
+            })}
           />
 
           <label htmlFor="password">Password</label>
@@ -95,23 +103,35 @@ export const LoginPage = (props) => {
             className="login-input"
             type="password"
             name="password"
-            required
-            {...register("password")}
+            {...register("password", {
+              required: true,
+              minLength: {
+                value: 8,
+                message: "Password must have at least 8 characters",
+              },
+            })}
           />
-
+          {errors.password && <p>{errors.password.message}</p>}
           <label htmlFor="passwordConfirm">Confirm Password</label>
           <input
             className="login-input"
             type="password"
             name="passwordConfirm"
             required
-            {...register("passwordConfirm")}
+            {...register("passwordConfirm", {
+              validate: (value) =>
+                value === getValues().password || "The passwords must match",
+            })}
           />
+
+          {errors.passwordConfirm && <p>{errors.passwordConfirm.message}</p>}
 
           <input className="login-cta" type="submit" value="Sign Up" />
           <br />
           <p>Have an account?</p>
-          <button className="login-buttons" onClick={() => setMode("login")}>Sign in</button>
+          <button className="login-buttons" onClick={() => setMode("login")}>
+            Sign in
+          </button>
         </form>
       )}
     </div>
