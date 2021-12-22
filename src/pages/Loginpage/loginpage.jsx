@@ -44,15 +44,76 @@ export const LoginPage = (props) => {
     }
   };
 
-  return(
-  <div className="login-container">
-      {mode ==="login" && (
-          <form className="form" onSubmit={handleSubmit(loginUser)}>
+  return (
+    <div className="login-container">
+      {mode === "login" && (
+        <form className="form" onSubmit={handleSubmit(loginUser)}>
+          <h2>Sign in to Pixel Perfect</h2>
+          <br />
 
+          <label htmlFor="user">Email</label>
+          <input
+            className="login-input"
+            type="email"
+            name="user"
+            required
+            {...register("user")}
+          />
 
+          <label htmlFor="password">Password</label>
+          <input
+            className="login-input"
+            type="password"
+            name="password"
+            required
+            {...register("password")}
+          />
 
-              
-          </form>
+          <input className="login-cta" type="submit" value="Sign in" />
+          <br />
+
+          <p>Create an account here!</p>
+          <button className="login-buttons" onClick={() => setMode("signup")}>Sign Up</button>
+        </form>
       )}
-  </div>)
+      {mode === "signup" && (
+        <form className="form" onSubmit={handleSubmit(signUp)}>
+          <h2>Sign up to Pixel Perfect</h2>
+          <br />
+
+          <label htmlFor="user">Email</label>
+          <input
+            className="login-input"
+            type="email"
+            name="user"
+            required
+            {...register("user")}
+          />
+
+          <label htmlFor="password">Password</label>
+          <input
+            className="login-input"
+            type="password"
+            name="password"
+            required
+            {...register("password")}
+          />
+
+          <label htmlFor="passwordConfirm">Confirm Password</label>
+          <input
+            className="login-input"
+            type="password"
+            name="passwordConfirm"
+            required
+            {...register("passwordConfirm")}
+          />
+
+          <input className="login-cta" type="submit" value="Sign Up" />
+          <br />
+          <p>Have an account?</p>
+          <button className="login-buttons" onClick={() => setMode("login")}>Sign in</button>
+        </form>
+      )}
+    </div>
+  );
 };

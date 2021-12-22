@@ -1,0 +1,46 @@
+.login-container{
+    margin:auto;
+    width: 400px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10rem;
+}
+
+.login-input{
+    display: flex;
+    height: 50px;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    border: 2px solid black;
+}
+
+.login-buttons{
+    background-color: white;
+    border: 2px solid black;
+    padding: 1rem;
+}
+
+.login-buttons:hover{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.login-cta{
+    margin-top: 1.5rem;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border: 2px solid black;
+}
+
+.login-cta:hover{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    border: 2px solid black;
+}

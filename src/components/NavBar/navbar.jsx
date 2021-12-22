@@ -13,7 +13,7 @@ export const NavBar = () => {
                 <NavLink className="nav-link" to="/profile">Profile</NavLink>
             </li>
             <li className="nav-list-item">
-                <NavLink className="nav-link" to="/login">Sign out</NavLink>
+                <NavLink className="nav-link" to="/">Sign out</NavLink>
             </li>
         </div>
         
