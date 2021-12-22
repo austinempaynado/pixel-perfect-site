@@ -1,16 +1,20 @@
-#post-container{
-    border: 1px solid black;
-    height: fit-content;
-    margin: 5rem auto 0 auto;
-
+#home-container {
+  width: 50%;
+  margin: 0 auto 0 auto;
 }
 
-#post-wrapper{
-    padding: 2rem 0 2rem 2rem;
+#post-container {
+  border: 1px solid black;
+  height: fit-content;
+  margin: 5rem auto 0 auto;
 }
 
-#poster-name{
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
+#post-wrapper {
+  padding: 2rem 0 2rem 2rem;
+}
+
+#poster-name {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
 }
