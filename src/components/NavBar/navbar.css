@@ -1,0 +1,16 @@
+#nav-container{
+    background-color: purple;
+}
+
+#nav-links{
+    display: flex;
+    text-decoration: none;
+    list-style-type: none;
+    justify-content: flex-end;
+}
+
+.nav-list-item{
+    margin: 1.4rem 2rem 1.4rem 0;
+    color: white;
+    cursor: pointer;
+}
