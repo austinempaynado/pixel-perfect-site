@@ -1,8 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { PostContextProvider } from "./context/postsContext";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -11,22 +12,22 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAaoTlBFvrUABIrNnnYo32kQZvtGxDjXZ0",
-  authDomain: "pixelperfect-00001.firebaseapp.com",
-  projectId: "pixelperfect-00001",
-  storageBucket: "pixelperfect-00001.appspot.com",
-  messagingSenderId: "1055592617084",
-  appId: "1:1055592617084:web:e70ea483f3428f199565f9"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FBAPP_ID,
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
 ReactDOM.render(
-  <React.StrictMode>
+  <PostContextProvider>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </PostContextProvider>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
