@@ -3,9 +3,10 @@
     position: sticky;
     top:0;
     height: 100vh;
-    width: 20%;
-    border-right: 2px solid black;
+    width: 25%;
+    border-right: 2px solid #B8E0D2;
     justify-content: flex-end;
+    background-color: #030F11;
 }
 
 #nav-links{
@@ -14,6 +15,7 @@
     margin-top: 40%;
     text-decoration: none;
     list-style-type: none;
+    
 }
 
 .nav-list-item{
@@ -22,7 +24,7 @@
 }
 
 .nav-link{
-    color: black;
+    color: #F7B2AD;
     text-decoration: none;
     font-weight: 500;
     font-size: 24px;

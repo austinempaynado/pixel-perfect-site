@@ -1,0 +1,43 @@
+#profile-title{
+
+    background-color: #071E22;
+    padding: 1rem 1rem 1rem 0;
+    
+}
+
+#profile-header{
+    margin-top: 4rem;
+    position: sticky;
+    top:0;
+    width: 120%;
+}
+
+.profile-page{
+    margin: auto;
+    width: 50%;
+}
+
+#post-form{
+    display: flex;
+    flex-direction: column;
+}
+
+#post-input{
+    padding: 1rem 2rem 2rem 2rem;
+}
+
+#post-submit{
+    width: 50%;
+    margin: auto;
+    margin-top: 1rem;
+    padding:1rem;
+    cursor: pointer;
+    background-color: #F7B2AD;
+    border: 1px solid #F7B2AD;
+    border-radius: 5px;
+}
+
+#post-submit:hover{
+    background-color: #071E22;
+    color: #F7B2AD;
+}

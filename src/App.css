@@ -1,13 +1,16 @@
 .App{
     display: flex;
+    background-color: #071E22;
 }
 
 h1{
     margin-block-start: 0;
     margin-block-end: 0;
+    color:#F7B2AD;
 }
 
 p{
     margin-block-start: 0;
     margin-block-end: 0;
+    color: #F7B2AD;
 }

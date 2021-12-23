@@ -18,9 +18,7 @@ export const ProfilePage = () => {
 
   useEffect(() => {
     getPosts();
-
   }, []);
-
 
   const getPosts = async () => {
     try {
@@ -32,7 +30,9 @@ export const ProfilePage = () => {
         return item.fields;
       });
 
-      const filteredPosts = formattedData.filter(posts=>posts.name.stringValue === email);
+      const filteredPosts = formattedData.filter(
+        (posts) => posts.name.stringValue === email
+      );
       setPosts(filteredPosts);
       globalState.initializePosts(formattedData);
     } catch (err) {}
@@ -68,7 +68,6 @@ export const ProfilePage = () => {
           body: JSON.stringify(formattedData),
         }
       );
-      history.push("/home");
     } catch (error) {
       console.log("Error", error);
     }
@@ -76,22 +75,31 @@ export const ProfilePage = () => {
 
   return (
     <div className="profile-page">
-      <form onSubmit={handleSubmit(submitPost)}>
-        <h2>Create New Post</h2>
-        <br />
-
-        <label htmlFor="post">Create new post</label>
-        <input {...register("post")} name="post" required type="text" />
-        <input type="submit" values="Submit Post" />
-      </form>
-      {posts.map((post) => (
-        <PostCard
-          key={post.id.stringValue}
-          id={post.id.stringValue}
-          name={post.name.stringValue}
-          post={post.post.stringValue}
-        />
-      ))}
+      <div id="profile-header">
+        <h1 id="profile-title">Signed in as {email}</h1>
+      </div>
+      <div id="profile-contents">
+        <form id="post-form" onSubmit={handleSubmit(submitPost)}>
+          <br />
+          <input
+            id="post-input"
+            placeholder="Create a new post!"
+            {...register("post")}
+            name="post"
+            required
+            type="text"
+          />
+          <input id="post-submit" type="submit" values="Submit Post" />
+        </form>
+        {posts.map((post) => (
+          <PostCard
+            key={post.id.stringValue}
+            id={post.id.stringValue}
+            name={post.name.stringValue}
+            post={post.post.stringValue}
+          />
+        ))}
+      </div>
     </div>
   );
 };
