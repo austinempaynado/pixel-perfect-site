@@ -2,7 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { PostCard } from "../../components/PostCard/postcard";
 import PostContext from "../../context/postsContext";
-import {getAuth, onAuthStateChanged} from 'firebase/auth';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useForm } from "react-hook-form";
 import "./homepage.css";
 
 export const Homepage = () => {
@@ -13,15 +14,16 @@ export const Homepage = () => {
   //constants
   const history = useHistory();
   const globalState = useContext(PostContext);
+  const { register, handleSubmit } = useForm();
 
   useEffect(() => {
     getPosts();
     const auth = getAuth();
-    onAuthStateChanged(auth, (user)=>{
-      if(!user){
-        history.push('/')
+    onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        history.push("/");
       }
-    })
+    });
   }, []);
 
   const getPosts = async () => {
@@ -31,7 +33,7 @@ export const Homepage = () => {
       );
       const data = await response.json();
 
-      const formattedData = data.documents.map((item) => {
+      const formattedData = data.documents.reverse().map((item) => {
         return item.fields;
       });
 
@@ -44,10 +46,14 @@ export const Homepage = () => {
     }
   };
 
+
+
   return (
     <div id="home-container">
       <div id="home-header">
         <h1>Home</h1>
+      </div>
+      <div id="post-input">
       </div>
       <div className="posts-list">
         {posts.map((post) => (

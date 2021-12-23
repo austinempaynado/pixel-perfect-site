@@ -21,6 +21,7 @@ export const NavBar = () => {
     const auth = getAuth();
     try {
       await signOut(auth);
+      localStorage.removeItem('user');
     } catch (err) {
       console.log(err);
     }

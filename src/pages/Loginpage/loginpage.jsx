@@ -29,6 +29,7 @@ export const LoginPage = (props) => {
         formVals.user,
         formVals.password
       );
+      localStorage.setItem('user', formVals.user);
       setLoginError(false);
       history.push("/home");
     } catch (error) {
