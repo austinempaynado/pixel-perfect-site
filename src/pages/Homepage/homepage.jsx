@@ -33,7 +33,7 @@ export const Homepage = () => {
       );
       const data = await response.json();
 
-      const formattedData = data.documents.reverse().map((item) => {
+      const formattedData = data.documents.map((item) => {
         return item.fields;
       });
 

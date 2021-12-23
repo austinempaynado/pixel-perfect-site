@@ -26,7 +26,7 @@ export const ProfilePage = () => {
         "https://firestore.googleapis.com/v1/projects/pixelperfect-00001/databases/(default)/documents/posts/"
       );
       const data = await response.json();
-      const formattedData = data.documents.reverse().map((item) => {
+      const formattedData = data.documents.map((item) => {
         return item.fields;
       });
 
@@ -71,6 +71,7 @@ export const ProfilePage = () => {
     } catch (error) {
       console.log("Error", error);
     }
+    history.push('/home');
   };
 
   return (
