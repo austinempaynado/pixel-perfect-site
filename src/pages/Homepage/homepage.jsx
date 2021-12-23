@@ -51,9 +51,7 @@ export const Homepage = () => {
   return (
     <div id="home-container">
       <div id="home-header">
-        <h1>Home</h1>
-      </div>
-      <div id="post-input">
+        <h1>Community Posts</h1>
       </div>
       <div className="posts-list">
         {posts.map((post) => (

@@ -5,7 +5,7 @@ export const PostCard = (props) => {
   return (
     <div id="post-container">
       <div id="post-wrapper">
-        <h1 id="poster-name">{name}</h1>
+        <p id="poster-name">{name}</p>
         <p>{post}</p>
         <img src={image} />
       </div>

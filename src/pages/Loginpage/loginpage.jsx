@@ -54,7 +54,7 @@ export const LoginPage = (props) => {
     <div className="login-container">
       {mode === "login" && (
         <form className="form" onSubmit={handleSubmit(loginUser)}>
-          <h2>Sign in to Pixel Perfect</h2>
+          <h1>Sign in to Pixel Perfect</h1>
           <br />
 
           {loginError === true && (
@@ -91,7 +91,7 @@ export const LoginPage = (props) => {
       )}
       {mode === "signup" && (
         <form className="form" onSubmit={handleSubmit(signUp)}>
-          <h2>Sign up to Pixel Perfect</h2>
+          <h1>Sign up to Pixel Perfect</h1>
           <br />
 
           <label htmlFor="user">Email</label>

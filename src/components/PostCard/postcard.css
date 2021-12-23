@@ -1,17 +1,18 @@
 #post-container {
-  border: 2px solid #B8E0D2;
-  border-radius: 10px;
+  border: 1px solid #BD86C7;
   height: fit-content;
-  margin: 3rem auto 0 auto;
-  width: 100%;
+  margin: 2rem auto 2rem auto;
+  border-radius: 5px;
+  width: 75%;
+  box-sizing: border-box;
+  background-color: #21222C;
 }
 
 #post-wrapper {
-  padding: 2rem 0 2rem 2rem;
+  padding: 2rem 0 1rem 2rem;
+  box-sizing: border-box;
 }
 
 #poster-name {
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
   font-weight: 600;
 }

@@ -91,6 +91,7 @@ export const ProfilePage = () => {
           />
           <input id="post-submit" type="submit" values="Submit Post" />
         </form>
+
         {posts.map((post) => (
           <PostCard
             key={post.id.stringValue}
